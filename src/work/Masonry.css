@@ -43,7 +43,8 @@
 /* Allows posts to take up more vertical space when the screen is smaller */
 @media (max-width: 900px) {
   .item-wrapper > .item-img {
-    max-height: 60vh;
+    max-height: 50vh;
   }
 
 }
+
