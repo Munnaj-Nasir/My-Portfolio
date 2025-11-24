@@ -1,0 +1,130 @@
+/* service-section.css */
+
+/* ------------------------------------- */
+/* 1. FULL-WIDTH BACKGROUND WRAPPER */
+/* ------------------------------------- */
+.service-section-full-bg {
+    width: 100%; 
+    background-color: black; 
+    padding-top: 30px; 
+}
+
+
+/* ------------------------------------- */
+/* 2. SERVICE SECTION (CONTENT CONTAINER - Centered) */
+/* ------------------------------------- */
+.service-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    
+    color: white; 
+    
+    padding: 80px 5% 40px; 
+    
+    max-width: 1400px; 
+    margin: 0 auto; /* Centers the content */
+    
+    overflow: hidden; 
+    position: relative; 
+    min-height: 480px; 
+}
+
+
+/* --- Text Content (Left Side - 60% Width) --- */
+.service-text-content {
+    flex: 0 0 60%; 
+    max-width: 60%;
+    z-index: 2; 
+    padding-right: 40px;
+}
+
+.service-title {
+    font-size: 3.5rem; 
+    font-weight: 700;
+    line-height: 1.2;
+    color: white; 
+    margin-bottom: 15px;
+}
+
+.service-intro {
+    font-size: 1.5rem; 
+    font-weight: 300;
+    color: #a0a0a0;
+    margin-bottom: 40px;
+}
+
+/* --- Card Swap Wrapper (Right Side - Absolute Positioning) --- */
+
+.card-swap-wrapper {
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    
+    /* Pushes the stack slightly up and right */
+    transform: translate(15%, 5%); 
+    
+    width: 450px; 
+    height: 500px; 
+    z-index: 1; 
+}
+
+
+/* ------------------------------------- */
+/* 3. MEDIA QUERIES (RESPONSIVENESS) */
+/* ------------------------------------- */
+
+/* Tablet and Smaller Desktop Screens (<= 992px) */
+@media (max-width: 992px) {
+    .service-section {
+        flex-direction: column; 
+        align-items: center;
+        /* Reserve space for the card stack at the bottom */
+        padding-bottom: 400px; 
+    }
+    
+    .service-text-content {
+        max-width: 100%; 
+        flex-basis: 100%;
+        padding-right: 0;
+        text-align: center; 
+    }
+
+    .service-title {
+        font-size: 3rem; 
+    }
+
+    .card-swap-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 50%; /* Start at 50% from the left */
+        
+        /* Center horizontally and slightly shift up */
+        transform: translate(-50%, 5%); 
+        
+        width: 400px;
+        height: 450px;
+    }
+}
+
+/* Mobile Screens (<= 576px) */
+@media (max-width: 576px) {
+    .service-section {
+        padding: 50px 5% 350px; 
+    }
+
+    .service-title {
+        font-size: 2.2rem; 
+    }
+
+    .service-intro {
+        font-size: 1.1rem;
+    }
+    
+    .card-swap-wrapper {
+        /* Scale down the card stack further for small phones, adjusting translate for perfect centering */
+        transform: scale(0.7) translate(-71.4%, 5%); 
+        width: 450px; 
+        height: 500px; 
+    }
+}

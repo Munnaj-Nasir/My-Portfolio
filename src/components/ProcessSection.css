@@ -1,0 +1,158 @@
+/* ==================================== */
+/* 1. Global Section & Container Styling */
+/* ==================================== */
+
+.process-section {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  padding: 8rem 2.5rem; /* Equivalent to py-32 and px-8 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.process-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .process-section {
+    padding-left: 10rem; /* Equivalent to md:px-40 */
+    padding-right: 10rem; /* Equivalent to md:px-40 */
+  }
+}
+
+/* ==================================== */
+/* 2. Header Block Styling */
+/* ==================================== */
+
+.process-header {
+  margin-bottom: 6rem; /* Equivalent to mb-24 */
+}
+
+.process-subtitle {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  opacity: 0.5; /* Equivalent to opacity-50 */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+  font-weight: 500;
+}
+
+.process-title {
+  font-size: 3.75rem; /* Equivalent to text-6xl (mobile) */
+  letter-spacing: -0.025em; /* Equivalent to tracking-tight */
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .process-title {
+    font-size: 5rem; /* Equivalent to md:text-8xl */
+  }
+}
+
+/* ==================================== */
+/* 3. Process Steps Layout and Styling */
+/* ==================================== */
+
+.process-steps-group {
+  /* No default spacing between items, gaps defined by padding in .process-step */
+}
+
+.process-step {
+  display: grid;
+  padding-top: 3rem; /* Equivalent to py-12 / 2 */
+  padding-bottom: 3rem; /* Equivalent to py-12 / 2 */
+  border-top: 1px solid #000000; /* Equivalent to border-t border-black */
+  
+  /* Initial state for hover effect */
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  
+  /* Mimic the negative margin/padding for full-width hover effect on desktop */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+/* Add the border-bottom to the last item */
+.border-b-step {
+  border-bottom: 1px solid #000000;
+}
+
+.process-step:hover {
+  background-color: #f7f7f7; /* Equivalent to hover:bg-neutral-50 */
+}
+
+
+/* Mobile Layout: Stacked (Number, Title, Description) */
+.process-step {
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.step-col-number {
+  order: 1; /* Number first */
+}
+.step-col-title {
+  order: 2; /* Title second */
+  margin-bottom: 0.5rem; /* Small space below title on mobile */
+}
+.step-col-description {
+  order: 3; /* Description last */
+}
+
+
+/* Desktop Layout: 12-column grid */
+@media (min-width: 768px) {
+  .process-step {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem; /* Adjust gap between columns */
+    
+    /* Reset full width padding/margin for desktop */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .step-col-number {
+    grid-column: span 2 / span 2; /* 2/12 width */
+    order: unset;
+  }
+  .step-col-title {
+    grid-column: span 3 / span 3; /* 3/12 width */
+    order: unset;
+    margin-bottom: 0;
+  }
+  .step-col-description {
+    grid-column: span 7 / span 7; /* 7/12 width */
+    order: unset;
+  }
+}
+
+/* ==================================== */
+/* 4. Column Content Styling */
+/* ==================================== */
+
+.step-number-text {
+  font-size: 3rem; /* Equivalent to text-5xl */
+  opacity: 0.2; /* Equivalent to opacity-20 (Default state) */
+  transition: opacity 0.3s ease-in-out;
+  display: block; /* Ensure it respects vertical alignment */
+}
+
+.process-step:hover .step-number-text {
+  opacity: 1; /* Equivalent to group-hover:opacity-100 */
+}
+
+.step-title {
+  font-size: 1.875rem; /* Equivalent to text-3xl */
+  font-weight: 500;
+}
+
+.step-description {
+  font-size: 1.125rem; /* Equivalent to text-lg */
+  opacity: 0.7; /* Equivalent to opacity-70 */
+  line-height: 1.625; /* Equivalent to leading-relaxed */
+}

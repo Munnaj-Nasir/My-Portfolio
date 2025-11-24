@@ -1,0 +1,89 @@
+/* ==================================== */
+/* 1. Global Section & Container Styling */
+/* ==================================== */
+
+.services-section {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
+  padding: 8rem 2.5rem; /* Equivalent to py-32 and px-8 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.services-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .services-section {
+    padding-left: 10rem; /* Equivalent to md:px-40 */
+    padding-right: 10rem; /* Equivalent to md:px-40 */
+  }
+}
+
+/* ==================================== */
+/* 2. Header Block Styling */
+/* ==================================== */
+
+.services-header {
+  margin-bottom: 6rem; /* Equivalent to mb-24 */
+}
+
+.services-subtitle {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  opacity: 0.5; /* Equivalent to opacity-50 */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+}
+
+.services-title {
+  font-size: 3.75rem; /* Equivalent to text-6xl (mobile) */
+  letter-spacing: -0.025em; /* Equivalent to tracking-tight */
+  font-weight: 500; /* Slightly lighter weight often looks better than default bold */
+}
+
+@media (min-width: 768px) {
+  .services-title {
+    font-size: 5rem; /* Equivalent to md:text-8xl */
+  }
+}
+
+/* ==================================== */
+/* 3. Services Grid and Cards */
+/* ==================================== */
+
+.services-grid {
+  display: grid;
+  gap: 3rem; /* Equivalent to gap-12 */
+}
+
+/* 💻 Desktop View: 3-column grid */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Equivalent to md:grid-cols-3 */
+  }
+}
+
+.service-card {
+  border-top: 1px solid #ffffff; /* Equivalent to border-t border-white */
+  padding-top: 2rem; /* Equivalent to pt-8 */
+}
+
+.service-number {
+  font-size: 3.75rem; /* Equivalent to text-6xl */
+  margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+  font-weight: 300; /* Light weight for the number */
+}
+
+.service-heading {
+  font-size: 1.875rem; /* Equivalent to text-3xl */
+  margin-bottom: 1rem; /* Equivalent to mb-4 */
+  font-weight: 600; /* Bold heading */
+}
+
+.service-description {
+  opacity: 0.7; /* Equivalent to opacity-70 */
+  line-height: 1.625; /* Equivalent to leading-relaxed */
+  font-size: 1rem; /* Standard paragraph size */
+}

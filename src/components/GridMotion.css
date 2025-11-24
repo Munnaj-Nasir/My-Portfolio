@@ -1,0 +1,132 @@
+/* ------------------------------------------- /
+/ 1. CRITICAL FIXES FOR HORIZONTAL OVERFLOW   /
+/ ------------------------------------------- */
+
+/* Apply this rule to the element that wraps the entire intro section
+to prevent the 150vw wide gridMotion-container from forcing horizontal scroll. /
+.noscroll {
+height: 100vh;
+width: 100vw;
+overflow: hidden; / Stops horizontal scrolling */
+/* position: relative; */
+
+
+.intro {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 250px;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.gridMotion-container {
+    gap: 1rem;
+    flex: none;
+    position: relative;
+    /* DESKTOP DIMENSIONS - Intentionally larger than viewport */
+    width: 150vw;
+    height: 150vh;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 100%;
+    transform: rotate(-15deg);
+    transform-origin: center center;
+    z-index: 2;
+    will-change: transform;
+}
+
+.row {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(7, 1fr);
+    will-change: transform, filter;
+}
+
+.row__item {
+    position: relative;
+}
+
+.row__item-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.row__item-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.row__item-content {
+    padding: 1rem;
+    text-align: center;
+    z-index: 1;
+}
+
+.fullview {
+    position: absolute;
+    /* Changed from relative to absolute for overlay /
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+pointer-events: none;
+z-index: 5; / Ensure this is on top */
+}
+
+.fullview .row__item-inner {
+    border-radius: 0px;
+
+
+/* ------------------------------------------- /
+/ 2. RESPONSIVENESS (MOBILE FIXES)            /
+/ ------------------------------------------- /
+@media (max-width: 768px) {
+.gridMotion-container {
+/ Reduce the size of the large container on mobile to prevent extreme cropping /
+width: 120vw;
+height: 120vh;
+/ Significantly reduce the rotation for better centering */
+transform: rotate(-5deg);
+gap: 0.5rem;
+}
+
+.row {
+    /* Change the column structure for mobile for larger items (e.g., 4 columns) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.row__item-inner {
+    font-size: 0.8rem;
+    /* Smaller font for mobile blocks */
+    border-radius: 5px;
+}

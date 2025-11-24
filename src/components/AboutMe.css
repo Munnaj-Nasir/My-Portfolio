@@ -1,0 +1,122 @@
+/* ==================================== */
+/* 1. Global Section Styling */
+/* ==================================== */
+
+.about-section {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
+  padding: 8rem 2.5rem; /* Large vertical padding, some horizontal padding */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.about-container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* ==================================== */
+/* 2. Grid Layout (Desktop/Tablet) */
+/* ==================================== */
+
+.about-grid {
+  /* Default: Stacked on mobile */
+  display: grid;
+  gap: 4rem; 
+}
+
+/* 💻 Desktop View: Grid Layout (applies at 768px and wider) */
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr)); /* 12-column grid */
+  }
+
+  .about-title-column {
+    grid-column: span 4 / span 4; /* Takes 4/12 of the width */
+  }
+
+  .about-content-column {
+    grid-column: span 8 / span 8; /* Takes 8/12 of the width */
+  }
+}
+
+/* ==================================== */
+/* 3. Title and Underline */
+/* ==================================== */
+
+.about-title {
+  font-size: 3rem; 
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: 400; /* Normal weight */
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 4.5rem; /* Larger font on desktop */
+  }
+}
+
+.title-underline {
+  width: 5rem;
+  height: 0.25rem;
+  background-color: #ffffff;
+}
+
+/* ==================================== */
+/* 4. Content and Text Styles */
+/* ==================================== */
+
+.about-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+  font-size: 1.25rem;
+  line-height: 1.625; 
+}
+
+@media (min-width: 768px) {
+  .about-text-group {
+    font-size: 1.5rem; 
+  }
+}
+
+.sub-text {
+  opacity: 0.8; 
+}
+
+.highlight-text {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.25rem 0.5rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+/* ==================================== */
+/* 5. Stats Group */
+/* ==================================== */
+
+.stats-group {
+  display: flex;
+  gap: 3rem; /* Increased gap slightly for stats spacing */
+  padding-top: 3rem; /* Increased top padding to push stats down */
+}
+
+.stat-number {
+  font-size: 3rem; 
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stat-label {
+  opacity: 0.5; 
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,163 @@
+/*
+ * FINAL EXPLICIT CSS FOR HERO SECTION
+ * Skills are moved Left, Contact info is added to the Right.
+ */
+
+/* ---------------------------------------------------- */
+/* A. Container and Wrapper Setup (No Change) */
+/* ---------------------------------------------------- */
+.hero-section {
+  position: relative; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: calc(100vh - 80px);
+  padding: 40px; 
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.hero-content-wrapper {
+  position: relative; 
+  width: 100%;
+  max-width: 1400px;
+  height: 60vh;
+  margin-top: 50px; 
+}
+
+/* ---------------------------------------------------- */
+/* B. Overlapping Elements Styling (Position Changes) */
+/* ---------------------------------------------------- */
+
+/* 1. Main Title (CREATIVE DESIGNER) */
+.hero-title-overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+  font-size: 8vw;
+  line-height: 0.8;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em; 
+  color: #000;
+  margin: 0;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* 2. Location Tag (No Change) */
+.hero-location-top-right {
+  position: absolute;
+  top: 15%; 
+  right: 5%; 
+  display: flex;
+  flex-direction: row; 
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
+.location-item {
+    margin-left: 10px;
+}
+
+/* 3. Image Container (No Change) */
+.hero-image-container {
+  position: absolute;
+  top: 25%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 30vw; 
+  height: 40vw; 
+  max-width: 600px; 
+  max-height: 800px;
+  background-color: #f7f7f7; 
+  z-index: 1; 
+  overflow: hidden; 
+}
+
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* ---------------------------------------------------- */
+/* C. NEW ELEMENT PLACEMENT */
+/* ---------------------------------------------------- */
+
+/* 4. 🚀 Skills List (Moved to the far LEFT) */
+.hero-skills-bottom-left {
+  position: absolute;
+  bottom: 25%; /* Raised higher */
+  left: 5%; /* Moved to the far left edge of the wrapper */
+  
+  font-size: 1.2rem;
+  font-weight: 900; 
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: #000;
+  padding: 10px 0;
+  z-index: 3; 
+}
+
+.skill-item-line {
+  margin: 0; 
+}
+
+/* 5. 🚀 Contact Info (New box on the far RIGHT) */
+.hero-contact-right {
+    position: absolute;
+    bottom: 25%; /* Aligned vertically with the skills list */
+    right: 5%; /* Moved to the far right edge of the wrapper */
+    text-align: right;
+    
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.hero-contact-right .contact-item {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+/* ---------------------------------------------------- */
+/* D. MOBILE ADJUSTMENTS (Simplified for Stacking) */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-content-wrapper {
+    height: auto; 
+    aspect-ratio: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Resetting all absolute positions for stacking */
+  .hero-title-overlay,
+  .hero-location-top-right,
+  .hero-image-container,
+  .hero-skills-bottom-left,
+  .hero-contact-right {
+    position: static; 
+    transform: none; 
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Adjusting sizes for mobile stacking */
+  .hero-title-overlay { font-size: 8vw; }
+  .hero-image-container { width: 80vw; height: 100vw; max-width: 400px; max-height: 600px; }
+  .hero-skills-bottom-left { font-size: 1rem; }
+  .hero-contact-right { font-size: 0.8rem; }
+}

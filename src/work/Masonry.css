@@ -1,0 +1,48 @@
+.list {
+    position: relative;
+    width: 100%;
+    /* The height property is now handled dynamically by the JavaScript 
+       to prevent the footer overlap, so we keep it simple here. */
+}
+
+.item-wrapper {
+    position: absolute;
+    will-change: transform, width, height, opacity;
+    /* This padding creates the 6px gap (12px total width/height) around each item. */
+    padding: 6px; 
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.item-wrapper > .item-img {
+    position: relative;
+    
+    /* FIX 1: Change 'cover' to 'contain'. 'cover' crops tall images; 
+       'contain' ensures the entire social media post is always visible. */
+    background-size: contain; 
+    background-repeat: no-repeat; /* Prevent image repetition when using 'contain' */
+    
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    
+    /* FIX 2: Add Max-Height for Desktop Responsiveness */
+    /* This prevents tall posts from forcing excessive scrolling on large monitors, 
+       making the gallery more manageable. */
+    max-height: 80vh; 
+
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional Media Query for Mobile/Tablet */
+/* Allows posts to take up more vertical space when the screen is smaller */
+@media (max-width: 900px) {
+  .item-wrapper > .item-img {
+    max-height: 100vh;
+  }
+}
