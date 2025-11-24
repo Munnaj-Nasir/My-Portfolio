@@ -166,10 +166,6 @@ const items = [
     img: "https://res.cloudinary.com/diaszaste/image/upload/v1764009077/6_tips-01_el0wii.jpg",
   },
   {
-    id: "42",
-    img: "hhttps://res.cloudinary.com/diaszaste/image/upload/v1764009061/4-01_t6uge4.jpg",
-  },
-  {
     id: "43",
     img: "https://res.cloudinary.com/diaszaste/image/upload/v1764009053/3-01_trmvz0.jpg",
   },
@@ -648,5 +644,6 @@ function SocialMediaPost() {
     </div>
   );
 }
+
 
 export default SocialMediaPost;
