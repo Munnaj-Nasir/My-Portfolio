@@ -35,10 +35,10 @@ const handleAnimationComplete = () => {
 };
 
 const demoItems = [
-  { link: './work/social-media-posts.jsx', text: 'Social Media Post', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764011550/ThumbSocial_hkoerp.png' },
-  { link: './work/ayre.jsx', text: 'Ayre', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764013626/24_dgojke.jpg' },
-  { link: './work/24-7-sports.jsx', text: '24/7 Sports', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764012498/1_eamag0.jpg' },
-  { link: './work/accesstoria.jsx', text: 'Accesstoria', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764013009/8_rj2k1q.jpg' }
+  { link: '/work/social-media-posts.jsx', text: 'Social Media Post', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764011550/ThumbSocial_hkoerp.png' },
+  { link: '/work/ayre.jsx', text: 'Ayre', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764013626/24_dgojke.jpg' },
+  { link: '/work/24-7-sports.jsx', text: '24/7 Sports', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764012498/1_eamag0.jpg' },
+  { link: '/work/accesstoria.jsx', text: 'Accesstoria', image: 'https://res.cloudinary.com/diaszaste/image/upload/v1764013009/8_rj2k1q.jpg' }
 ];
 
 
