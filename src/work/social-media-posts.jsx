@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FooterSection from '../components/FooterSection.jsx';
 import Masonry from './Masonry';
+
+// --- Image Data Array ---
 const items = [
   // --- Images from the 'Images/ceo-lawyer-sm-post' folder ---
   {
@@ -622,25 +624,100 @@ const items = [
     img: "https://res.cloudinary.com/diaszaste/image/upload/v1764009177/HPE_proliant_GEN_10-01_xs8gco.jpg",
   },
 ];
+// --- End Image Data Array ---
+
+
+// Utility function to pre-load all images and resolve when done
+const preloadImages = (imageUrls) => {
+  const promises = imageUrls.map(url => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = resolve;
+      img.onerror = reject; // Handle errors if necessary
+    });
+  });
+  // Wait for all image promises to resolve
+  return Promise.all(promises);
+};
+
+// Simple Loading Component
+const LoadingScreen = () => (
+  <div style={{ 
+    display: 'flex', 
+    flexDirection: 'column',
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '60vh', 
+    fontSize: '1.2em',
+    color: '#333',
+    background: '#f8f8f8'
+  }}>
+    <div style={{ 
+      border: '4px solid #f3f3f3', 
+      borderTop: '4px solid #3498db', 
+      borderRadius: '50%', 
+      width: '40px', 
+      height: '40px', 
+      animation: 'spin 1s linear infinite'
+    }} />
+    <p style={{ marginTop: '15px' }}>Loading posts...</p>
+
+    {/* You might need to define the @keyframes for 'spin' in your global CSS or styled-components */}
+    {/* For a pure in-line solution, this is a limitation, but it shows the intent */}
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
+  </div>
+);
+
 
 function SocialMediaPost() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // 1. Extract all image URLs from the items array
+    const imageUrls = items.map(item => item.img);
+
+    // 2. Pre-load the images
+    preloadImages(imageUrls)
+      .then(() => {
+        // 3. Set loading to false once all images are loaded
+        console.log("All images pre-loaded!");
+        // Small delay added here to make the loading screen visible 
+        // even if images load too fast. (Optional)
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 500); 
+      })
+      .catch(error => {
+        console.error("Error pre-loading images:", error);
+        // Fallback: stop the loading screen even if some images fail to load
+        setIsLoading(false); 
+      });
+  }, []); // Empty dependency array means this runs only once on mount
 
   return (
     <div className="WorksPage" >
-      <Masonry
-        items={items}
-        ease="power3.out"
-        duration={0.6}
-        stagger={0.05}
-        animateFrom="bottom"
-        scaleOnHover={true}
-        hoverScale={0.95}
-        blurToFocus={true}
-        colorShiftOnHover={false}
-      />
-
-
-
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <Masonry
+          items={items}
+          ease="power3.out"
+          duration={0.6}
+          stagger={0.05}
+          animateFrom="bottom"
+          scaleOnHover={true}
+          hoverScale={0.95}
+          blurToFocus={true}
+          colorShiftOnHover={false}
+        />
+      )}
+      <FooterSection /> 
     </div>
   );
 }
